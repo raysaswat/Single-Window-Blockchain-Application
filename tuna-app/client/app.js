@@ -88,10 +88,8 @@ app.factory('appFactory', function($http){
 
 	factory.recordTuna = function(data, callback){
 
-		data.location = data.longitude + ", "+ data.latitude;
-console.log(tuna)
 		var tuna = data.id + "-" + data.location + "-" + data.timestamp + "-" + data.holder + "-" + data.vessel;
-console.log(tuna)
+		
     	$http.get('/add_tuna/'+tuna).success(function(output){
 			callback(output)
 		});
