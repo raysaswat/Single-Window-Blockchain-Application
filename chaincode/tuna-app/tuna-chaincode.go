@@ -93,11 +93,7 @@ func (s *SmartContract) queryTuna(APIstub shim.ChaincodeStubInterface, args []st
 
 /*
  * The initLedger method *
-Will add test data (10 tuna catches)to our network
- Time stamp = CERTIFICATE NAME
- Holder  = STUDENT NAME
- Vessel = Grade
- Location = passed year
+Will add test data (10 student's record)to our network
 */
 func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Response {
 	tuna := []Tuna{
