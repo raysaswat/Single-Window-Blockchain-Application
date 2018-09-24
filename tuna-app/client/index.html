@@ -1,0 +1,144 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hyperledger Fabric Student Record Application</title>
+    <link rel="icon" href="favicon.png" type="image/gif">
+
+    <!-- require jquery and bootstrap scripts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    
+    <!-- adding style here -->
+    <style type="text/css">
+      header{
+        background-color: lightgray;
+        font-size:20px;
+        padding:15px;
+      }
+      header, .form-group{
+        margin-bottom: 3%;
+      }
+      .form-group{
+        width:50%;
+      }
+      #body{
+        margin-left:3%;
+        margin-right:3%;
+      }
+      .form-control{
+        margin: 8px;
+      }
+      #right_header{
+        width:20%;
+        font-size:15px;
+        margin-right:0px;
+      }
+      #left_header{
+        margin-left:0;
+        width:40%;
+        display:inline-block;
+      } 
+      #id {
+        width:49%;
+        display: inline-block;
+      }
+      table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+      }
+      td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+      }
+      tr:nth-child(even) {
+          background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body ng-app="application" ng-controller="appController">
+    <header>
+      <div id="left_header">Hyperledger Fabric Student Record Application</div>
+    </header>
+
+    <div id="body">
+      <div class="form-group">
+        <label>Query All Students Information</label>
+        <p><input id="queryAllTuna" type="submit" value="Query" class="btn btn-primary" ng-click="queryAllTuna()"></p>
+      </div>
+ 
+      <table id="all_tuna" class="table" align="center">
+
+        <tr>
+          <th>ID</th>
+          <th>Certificate Name</th>
+          <th>Student Name</th>
+          <th>Passed year</th>
+          <th>Grade</th>
+        </tr>
+
+        <tr ng-repeat="tuna in all_tuna">
+          <td>{{tuna.Key}}</td>
+          <td>{{tuna.timestamp}}</td>
+          <td>{{tuna.holder}}</td>
+          <td>{{tuna.location}}</td>
+          <td>{{tuna.vessel}}</td>
+        </tr>
+      </table>
+
+      <div class="form-group">
+        <label>Query a Specific Student Information</label><br>
+        <h5 style="color:red;margin-bottom:2%" id="error_query">Error: Please enter a valid  Id</h5>
+        
+        Enter ID number: <input id="createName" class="form-control" type="text" placeholder="Ex: 3" ng-model="tuna_id">
+        <input id="querySubmit" type="submit" value="Query" class="btn btn-primary" ng-click="queryTuna()">
+      </div>
+
+      <table id="query_tuna" class="table" align="center">
+
+        <tr>
+          <th>Certificate Name</th>
+          <th>Student Name</th>
+          <th>Passed Year</th>
+          <th>Grade</th>
+        </tr>
+
+        <tr>
+          <td>{{query_tuna.timestamp}}</td>
+          <td>{{query_tuna.holder}}</td>
+          <td>{{query_tuna.location}}</td>
+          <td>{{query_tuna.vessel}}</td>
+        </tr>
+      </table>
+
+      <div class="form-group">
+        <label>Create Student Record</label>
+        <h5 style="color:green;margin-bottom:2%" id="success_create">Success! Tx ID: {{create_tuna}}</h5>
+        <br>
+        Enter a student id: <input class="form-control" type="text" placeholder="Ex: 10" ng-model="tuna.id">
+        Enter the grade num: <input class="form-control" type="text" placeholder="Ex: 1st" ng-model="tuna.vessel">
+        Enter passed year: <input id="createName" class="form-control" type="text" placeholder="Ex: 2005" ng-model="tuna.location"> 
+        Enter certificate name: <input class="form-control" type="text" placeholder="Ex: M.TECH" ng-model="tuna.timestamp">
+        Enter name of student: <input class="form-control" type="text" placeholder="Ex: Hansel" ng-model="tuna.holder">
+        <input id="createSubmit" type="submit" value="Create" class="btn btn-primary" ng-click="recordTuna()"> 
+      </div>
+
+      <div class="form-group">
+        <label>Change Student Name</label><br>
+        <h5 style="color:green;margin-bottom:2%" id="success_holder">Success! Tx ID: {{change_holder}}</h5>
+        <h5 style="color:red;margin-bottom:2%" id="error_holder">Error: Please enter a valid Tuna Id</h5>
+        Enter a student id between 1 and 10: <input class="form-control" name="assetSelect" placeholder="Ex: 1" ng-model="holder.id">
+        Enter name of a new student : <input class="form-control" name="assetSelect" placeholder="Ex: Barry" ng-model="holder.name">
+        <input id="transferSubmit" type="submit" value="Change" class="btn btn-primary" ng-click="changeHolder()">
+      </div>
+
+    </div>
+  </body>
+    <!-- requiring the angular page -->
+    <script type="text/javascript" src="app.js"> </script>
+</html>
