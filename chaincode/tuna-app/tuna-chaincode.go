@@ -97,17 +97,18 @@ Will add test data (10 student's record)to our network
 */
 func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Response {
 	tuna := []Tuna{
-		Tuna{Grade: "1st", PassedYear: "1998", CertificateName: "B.TECH", StudentName: "Miriam"},
-		Tuna{Grade: "Fail", PassedYear: "2000", CertificateName: "M.TECH", StudentName: "Dave"},
-		Tuna{Grade: "2nd", PassedYear: "2015", CertificateName: "PHD", StudentName: "Igor"},
-		Tuna{Grade: "3rd", PassedYear: "2002", CertificateName: "MBA", StudentName: "Amalea"},
-		Tuna{Grade: "2nd", PassedYear: "2006", CertificateName: "M.TECH", StudentName: "Rafa"},
-		Tuna{Grade: "1st", PassedYear: "2008", CertificateName: "B.TECH", StudentName: "Shen"},
-		Tuna{Grade: "2nd", PassedYear: "2003", CertificateName: "PHD", StudentName: "Leila"},
-		Tuna{Grade: "1st", PassedYear: "2012", CertificateName: "MBA", StudentName: "Yuan"},
-		Tuna{Grade: "Fail", PassedYear: "2017", CertificateName: "M.TECH", StudentName: "Carlo"},
-		Tuna{Grade: "3rd", PassedYear: "2004", CertificateName: "MBA", StudentName: "Fatima"},
+		Tuna{Vessel: "1st", Location: "1998", Timestamp: "B.TECH", Holder: "Rahul"},
+		Tuna{Vessel: "2nd", Location: "1995", Timestamp: "M.TECH", Holder: "Bipin"},
+		Tuna{Vessel: "1st", Location: "1999", Timestamp: "PHD", Holder: "Saswat"},
+		Tuna{Vessel: "3rd", Location: "2010", Timestamp: "MBA", Holder: "Ashok"},
+		Tuna{Vessel: "FAIL", Location: "2005", Timestamp: "MCA", Holder: "Mukund"},
+		Tuna{Vessel: "2nd", Location: "2016", Timestamp: "PHD", Holder: "Asim"},
+		Tuna{Vessel: "1st", Location: "2001", Timestamp: "M.TECH", Holder: "Suresh"},
+		Tuna{Vessel: "3rd", Location: "2018", Timestamp: "MCA", Holder: "Ramesh"},
+		Tuna{Vessel: "2nd", Location: "2015", Timestamp: "MBA", Holder: "Pankaj"},
+		Tuna{Vessel: "1st", Location: "2002", Timestamp: "B.TECH", Holder: "Kiran"},
 	}
+
 
 	i := 0
 	for i < len(tuna) {
