@@ -7,14 +7,14 @@ Requirements :
 1. https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html
 Please follow the above link to install prerequisite such as Docker container, NPM packages etc.
 
-2.Clone this repository to the Ubuntu system using (git clone http://....) 
+2. Clone this repository to the Ubuntu system using (git clone http://....) 
 
-3.Move to tuna-app folder.
+3. Move to tuna-app folder.
 
-4.Make sure you have Docker running on your machine before you run the next command.First, remove any pre-existing containers, as it may conflict with commands.
+4. Make sure you have Docker running on your machine before you run the next command.First, remove any pre-existing containers, as it may conflict with commands.
 $ docker rm -f $(docker ps -aq)
 
-5.Then, let’s start the Hyperledger Fabric network with the following command:
+5. Then, let’s start the Hyperledger Fabric network with the following command:
 $ ./startFabric.sh
 
 Troubleshooting: If, after running the above you are getting an error similar to the following:
@@ -26,7 +26,7 @@ try running the following command:
 
 $ rm -rf ~/Library/Containers/com.docker.docker/Data/*
 
-6.Install the requires package, , register the Admin and User components of our network, and start the client application with the following commands:
+6. Install the requires package, , register the Admin and User components of our network, and start the client application with the following commands:
 
 $ npm install
 
